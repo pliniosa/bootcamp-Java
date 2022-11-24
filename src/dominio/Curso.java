@@ -1,41 +1,35 @@
 package dominio;
 
-public class Curso {
-    private String titulo;
-    private String descricao;
+public class Curso extends Conteudo {
+
+    // Atributos da classe
     private int cargaHoraria;
 
-    public Curso(){
-        
+    // Construtor da classe
+    public Curso() {
+
     }
 
-    public String getTitulo(){
-        return titulo;
+    // Implementado os dados herdados
+    @Override
+    public double calcularExp() {
+        return EXP_PADRAO * cargaHoraria;
     }
 
-    public void setTitulo(String titulo){
-        this.titulo = titulo;
-    }
-
-    public String getDescricao(){
-        return descricao;
-    }
-
-    public void setDescricao(String descricao){
-        this.descricao = descricao;
-    }
-
-    public int getCargaHoraria(){
+    //Get e Set dos atributos da classe
+    public int getCargaHoraria() {
         return cargaHoraria;
     }
 
-    public void setCargaHoraria(int cargaHoraria){
+    public void setCargaHoraria(int cargaHoraria) {
         this.cargaHoraria = cargaHoraria;
     }
 
+    // Override da mensagem que sera impressa ao chamar o objeto criado
     @Override
-    public String toString(){
-        return "Curso{" + "Titulo='" + titulo + '\'' + ", Descricao='" + descricao + '\'' + ", Carga Horaria=" + cargaHoraria + '}';
+    public String toString() {
+        return "Curso{" + "Titulo='" + getTitulo() + '\'' + ", Descricao='" + getDescricao() + '\'' + ", Carga Horaria="
+                + cargaHoraria + '}';
     }
 
 }
