@@ -1,54 +1,40 @@
-import java.time.LocalDate;
-
 import dominio.Bootcamp;
-import dominio.Conteudo;
 import dominio.Curso;
 import dominio.Dev;
 import dominio.Mentoria;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        
-        //Objetos
-        Curso curso = new Curso();
-        Mentoria mentoria = new Mentoria();
-        
-        //Polimorfismo
-        Conteudo conteudo = new Curso();
 
-        Bootcamp bootcamp = new Bootcamp();
-        Dev devPlinio = new Dev();
+        // Objetos
+        Curso curso = new Curso("Java", "Descricao do curso", 10);
+        Mentoria mentoria = new Mentoria("Mentoria de Java", "Descricao da Mentoria");
 
-        //Atribuindo Valor
-        curso.setTitulo("Java");
-        curso.setDescricao("Descricao do curso");
-        curso.setCargaHoraria(21);
+        Bootcamp bootcamp = new Bootcamp("Nome do BootCamp", "Descrição do BootCamp", curso, mentoria);
+        Dev devPlinio = new Dev("Plinio", bootcamp);
 
-        //Atibuindo Valor
-        mentoria.setTitulo("Java");
-        mentoria.setDescricao("Descricao do curso");
-        mentoria.setData(LocalDate.now());
+        // Polimorfismo
+        // Conteudo conteudo = new Curso();
 
-        //Atribuindo Valor
-        bootcamp.setNome("Nome do BootCamp");
-        bootcamp.setDescricao("Descrição do BootCamp");
-        bootcamp.getConteudos().add(curso);
-        bootcamp.getConteudos().add(mentoria);
-
-        //Atribuindo Valor
-        devPlinio.setNome("Plinio");
-        devPlinio.inscreverBootcamp(bootcamp);
-        devPlinio.progredir();
-
-        //Monstrando o toString de cada objeto
+        // Monstrando o toString de cada objeto
         System.out.println(curso);
         System.out.println(mentoria);
-        System.out.println(conteudo);
         System.out.println(devPlinio.getConteudosInscritos());
         System.out.println(devPlinio.getConteudosConcluidos());
+        System.out.println("Experiencia total: " + devPlinio.calcularExp());
+
+        devPlinio.progredir();
+
+        // Monstrando o toString de cada objeto
+        System.out.println(curso);
+        System.out.println(mentoria);
+        System.out.println(devPlinio.getConteudosInscritos());
+        System.out.println(devPlinio.getConteudosConcluidos());
+        System.out.println("Experiencia total: " + devPlinio.calcularExp());
         devPlinio.progredir();
         System.out.println(devPlinio.getConteudosInscritos());
         System.out.println(devPlinio.getConteudosConcluidos());
+        System.out.println("Experiencia total: " + devPlinio.calcularExp());
 
     }
 }

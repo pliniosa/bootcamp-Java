@@ -6,8 +6,9 @@ public class Curso extends Conteudo {
     private int cargaHoraria;
 
     // Construtor da classe
-    public Curso() {
-
+    public Curso(String titulo, String descricao, int cargaHoraria) {
+        super(titulo, descricao);
+        this.cargaHoraria = cargaHoraria;
     }
 
     // Implementado os dados herdados
@@ -16,7 +17,7 @@ public class Curso extends Conteudo {
         return EXP_PADRAO * cargaHoraria;
     }
 
-    //Get e Set dos atributos da classe
+    // Get e Set dos atributos da classe
     public int getCargaHoraria() {
         return cargaHoraria;
     }
@@ -28,8 +29,7 @@ public class Curso extends Conteudo {
     // Override da mensagem que sera impressa ao chamar o objeto criado
     @Override
     public String toString() {
-        return "Curso{" + "Titulo='" + getTitulo() + '\'' + ", Descricao='" + getDescricao() + '\'' + ", Carga Horaria="
-                + cargaHoraria + '}';
+        return " Curso: " + getTitulo() + '\n' + " Descrição: " + getDescricao() + '\n' + " Carga Horaria: " + cargaHoraria;
     }
 
 }
